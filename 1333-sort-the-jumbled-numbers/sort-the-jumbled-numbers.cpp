@@ -20,7 +20,6 @@ public:
 
         vector<int>ans;
         for(auto &p:temp){
-            cout << p.first << " -> " << p.second << endl;
             ans.push_back(p.second);
         }
         return ans;
