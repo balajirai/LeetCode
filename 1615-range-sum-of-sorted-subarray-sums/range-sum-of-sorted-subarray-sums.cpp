@@ -1,14 +1,12 @@
 class Solution {
 public:
     int rangeSum(vector<int>& nums, int n, int left, int right) {
-        // brute force
+        // better
         vector<int>sums;
         for (int start = 0; start < n; ++start){
+            int sum = 0;
             for (int end = start; end < n; ++end){
-                int sum = 0;
-                for (int k = start; k <= end; ++k){
-                    sum += nums[k];
-                }
+                sum += nums[end];
                 sums.push_back(sum);
             }
         }
