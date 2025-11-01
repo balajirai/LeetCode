@@ -1,17 +1,21 @@
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        // Brute force
-        vector<int>ans;
+        // Better Solution
+        unordered_map<int,int>hash;
         for(int i=0; i<nums.size(); i++){
-            for(int j=i+1; j<nums.size(); j++){
-                if(nums[i] + nums[j] == target){
-                    ans.push_back(i);
-                    ans.push_back(j);
-                    return ans;
-                }
+            int first = nums[i];
+            int second = target - first;
+
+            // Agar mil jata hai
+            if(hash.find(second) != hash.end()){
+                return {i, hash[second]};
             }
+
+            // Agar ni milta hai
+            hash[first] = i;
+
         }
-        return ans;
+        return {};
     }
 };
