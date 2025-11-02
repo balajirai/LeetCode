@@ -3,9 +3,9 @@ public:
     vector<int> findMissingElements(vector<int>& nums) {
         vector<int>ans;
         sort(nums.begin(), nums.end());
-        int start = nums[0], end = nums[nums.size()-1];
-        int i = 0;
-        while(start < end && i < nums.size()){
+        int i = 0, n = nums.size();
+        int start = nums[i], end = nums[n-1];
+        while(start < end && i < n){
             if(start != nums[i]){
                 ans.push_back(start);
             }
