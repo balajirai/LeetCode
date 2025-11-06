@@ -1,12 +1,20 @@
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
-        int i = 0, profit_max = 0, profit, price_min = INT_MAX;
-        for(; i<prices.size(); i++){
-            profit = prices[i] - price_min;
-            price_min = min(prices[i], price_min);
-            profit_max = max(profit,profit_max);
+        // Better Approach (Two Pointer)
+        int maxProf = 0, left = 0, right = 1;
+        while(right < prices.size()){
+            if(prices[left] < prices[right]){
+                int currProf = prices[right] - prices[left];
+                maxProf = max(maxProf, currProf);
+            }
+            else{
+                // selling price is less than buying price
+                // so make this as buying price and look for greater selling price
+                left = right;
+            }
+            right++;
         }
-        return profit_max;
+        return maxProf;
     }
 };
