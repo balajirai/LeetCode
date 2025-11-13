@@ -8,7 +8,7 @@ public:
         while(right < n){
             hash[s[right]-'A']++;
             maxFreq = max(maxFreq, hash[s[right]-'A']);
-            while((right-left+1) - maxFreq > k){
+            if((right-left+1) - maxFreq > k){
                 hash[s[left]-'A']--;
                 left++;
             }
