@@ -20,13 +20,9 @@ public:
                 }
                 if(m.count(temp) > 0) result += m[temp];
                 else result += '?';
-                index++;
-                continue;
             }
-            else {
-                result += s[index];
-                index++;
-            }
+            else result += s[index];
+            index++;
         }
 
         return result;
